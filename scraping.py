@@ -82,8 +82,12 @@ def hemisphere_data(browser):
         img_soup = soup(html, 'html.parser')
         
         #scrape jpg url
-        img_url_rel = img_soup.find_all('a', target='_blank')[2].get('href')
+        #img_url_rel = img_soup.findall('a', target='_blank')[3].get('href')
+        img_url_rel = img_soup.find('a', text="Sample").get('href')
         
+        img_url_rel = url + img_url_rel
+        
+
         #scrape image title
         img_title = img_soup.find('h2', class_='title').get_text()
         
